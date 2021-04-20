@@ -1,0 +1,11 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+No error detected in 00110011
+Single error detected on position: 3, in 00100011
+Corrected: 00110011
+Double error detected in 00100001
+est passed
+Input data 0010
+Encoded: 10101010
+Expected value: 10101010
+Test passed
