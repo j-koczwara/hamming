@@ -1,28 +1,24 @@
 `timescale 1ns / 1ps
 
-
 module encoder;
 parameter data_bits=4;
-parameter parity_bits=3;
-parameter all_bits=data_bits+parity_bits+1;
+parameter parity_bits=4;
+parameter all_bits=data_bits+parity_bits;
 
 reg [0:data_bits-1] data;
+
 reg [0:data_bits-1] input_data [0:2];
 reg [0:all_bits-1] correct_output [0:2];
 
-
-
-integer n = 1;
-integer t = 5'b00000;
-integer s = 5'b00000;
-integer d = 5'b00000;
+integer parity_position = 1;
+integer data_counter = 5'b00000;
+integer sum = 5'b00000;
+integer output_data_counter = 5'b00000;
 integer i = 0;
 integer k = 0;
 
 integer offset = 0;
-
-reg [0:all_bits-1] sum = 0 ;
-reg [0:all_bits-1] h = 0;
+reg [0:all_bits-1] encoder_output = 0;
 
 initial begin
 
@@ -34,58 +30,50 @@ initial begin
     correct_output[2]=8'b10101010;
     
     for (k=0; k < 3; k=k+1) begin
-        n=1;
-        t=0;
-        d=0;
+        parity_position=1;
+        data_counter=0;
+        output_data_counter=0;
         sum=0;
-        h=0;
+        encoder_output=0;
         data=input_data[k];
         
         for (i=1; i < all_bits; i=i+1) begin  //add parity bits
-            if ( i == n )begin 
-                h[i] = 0;
-                n = n<<<1;
+            if ( i == parity_position )begin 
+                encoder_output[i] = 0;
+                parity_position = parity_position<<1;
             end
             else begin
-                h[i] = data[t];
-                t=t+1;
+                encoder_output[i] = data[data_counter];
+                data_counter=data_counter+1;
             end
         end
         
-        n=1;
+        parity_position=1;
                     
-        while ( n < all_bits) begin //parity value
-            offset = n-1;
-            d = 1 + offset;
-            s=0;
-            while (d < all_bits) 
-                for (i=0; i < n; i=i+1) begin
-                    if (d < all_bits) begin
-                        s=s+h[d];
-                        d=d+1;
-                    end                
-                d=d+n;                
-            end
-            
-            if (s%2 == 1) begin 
-                h[n] = 1;
-            end
-            
-        n = n<<<1;
-            
-    end
-    
-        for(i=0; i< all_bits; i=i+1) begin //extra parity bit
-            sum = sum + h[i];
+        while ( parity_position < all_bits) begin //parity value
+            offset = parity_position-1;
+            output_data_counter = 1 + offset;
+            sum=0;
+            while (output_data_counter < all_bits) begin
+                for (i=0; i < parity_position; i=i+1) begin                    
+                    sum=sum+encoder_output[output_data_counter];
+                    output_data_counter=output_data_counter+1;                    
+                end              
+                output_data_counter=output_data_counter+parity_position;                
+            end 
+            encoder_output[parity_position] = sum%2;
+            parity_position = parity_position<<1;            
         end
-        h[0] = sum%2;   
-         
-        
+        sum=0;
+        for(i=0; i< all_bits; i=i+1) begin //extra parity bit
+            sum = sum + encoder_output[i];
+        end
+        encoder_output[0] = sum%2;   
         
         $display("Input data %b", data);
-        $display("Encoded: %b",h);
+        $display("Encoded: %b",encoder_output);
         $display("Expected value: %b", correct_output[k]);
-        if (h == correct_output[k])
+        if (encoder_output == correct_output[k])
             $display("Test passed");
         else
             $display("Test failed");
