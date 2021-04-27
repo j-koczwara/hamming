@@ -1,35 +1,31 @@
 `timescale 1ns / 1ps
 
-module decoder;
+module decoder(rst, hamming_in, data_out);
 
 parameter data_bits=4;
 parameter parity_bits=4;
 parameter all_bits=data_bits+parity_bits;
-reg [0:data_bits-1] data_out;
-reg [0:7] hamming_in = 'b00110011;
+
+input rst;
+input [0:all_bits-1] hamming_in ;
+output reg [0:data_bits-1] data_out;
 
 integer syndrome= 0;
 integer parity_position = 1;
 integer input_data_counter =0;
 integer data_counter =0;
 integer i = 0;
-integer k = 0;
 integer offset = 0;
 integer extra_parity =  1'b0;
 integer sum = 0 ;
-reg [0:7] hamming_error_in[0:2];
 reg [0:7] hamming_error;
+reg [0:data_bits-1] data;
 
 
-initial begin
-
-    hamming_error_in[0]=8'b11000011;
-    hamming_error_in[1]=8'b00100011;
-    hamming_error_in[2]=8'b00100001;
-    
-    //parity check
-    for (k=0; k<3; k=k+1) begin
-        hamming_error =  hamming_error_in[k];
+always @* begin
+    if (~rst) begin
+        hamming_error =  hamming_in;
+        
         parity_position = 1;
         sum=0;
         syndrome=0;
@@ -62,7 +58,7 @@ initial begin
         data_counter=0;
         for( i=1; i< all_bits; i=i+1) begin
             if(i!==parity_position)begin
-                data_out[data_counter]=hamming_error[i];
+                data[data_counter]=hamming_error[i];
                 data_counter=data_counter+1;
             end
             else
@@ -77,15 +73,16 @@ initial begin
                 $display("Single error detected on position: %0d, in %b", syndrome, hamming_error);
                 hamming_error[syndrome] = ~hamming_error[syndrome];
                 $display("Corrected: %b", hamming_error);
-                $display("Data out: %b", data_out);
+                $display("Data out: %b", data);
             end
             else begin
                 $display("No error detected in %b", hamming_error);
-                $display("Data out: %b", data_out);
+                $display("Data out: %b", data);
             end
         end
         
-        
+    data_out = data;
     end
 end
+    
 endmodule

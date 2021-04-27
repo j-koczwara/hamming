@@ -1,13 +1,15 @@
 `timescale 1ns / 1ps
 
-module encoder;
+module encoder(rst, data_in, hamming_out);
 parameter data_bits=4;
 parameter parity_bits=4;
 parameter all_bits=data_bits+parity_bits;
 
-reg [0:data_bits-1] data;
+input rst;
+input [0:data_bits-1] data_in ;
+output reg [0:all_bits-1] hamming_out;
 
-reg [0:data_bits-1] input_data [0:2];
+reg [0:data_bits-1] data;
 reg [0:all_bits-1] correct_output [0:2];
 
 integer parity_position = 1;
@@ -16,26 +18,18 @@ integer sum = 5'b00000;
 integer output_data_counter = 5'b00000;
 integer i = 0;
 integer k = 0;
-
 integer offset = 0;
 reg [0:all_bits-1] encoder_output = 0;
 
-initial begin
+always @* begin
+    if (~rst) begin
 
-    input_data[0]=4'b0011;
-    input_data[1]=4'b1011;
-    input_data[2]=4'b0010;
-    correct_output[0]=8'b11000011;
-    correct_output[1]=8'b00110011;
-    correct_output[2]=8'b10101010;
-    
-    for (k=0; k < 3; k=k+1) begin
         parity_position=1;
         data_counter=0;
         output_data_counter=0;
         sum=0;
         encoder_output=0;
-        data=input_data[k];
+        data=data_in;
         
         for (i=1; i < all_bits; i=i+1) begin  //add parity bits
             if ( i == parity_position )begin 
@@ -72,12 +66,8 @@ initial begin
         
         $display("Input data %b", data);
         $display("Encoded: %b",encoder_output);
-        $display("Expected value: %b", correct_output[k]);
-        if (encoder_output == correct_output[k])
-            $display("Test passed");
-        else
-            $display("Test failed");
-       
-     end   
+
+     hamming_out = encoder_output;
+    end
 end
 endmodule
