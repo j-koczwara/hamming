@@ -2,8 +2,8 @@
 
 module decoder(rst, hamming_in, data_out);
 
-parameter data_bits=4;
-parameter parity_bits=4;
+parameter data_bits=26;
+parameter parity_bits=6;
 parameter all_bits=data_bits+parity_bits;
 
 input rst;
@@ -18,7 +18,7 @@ integer i = 0;
 integer offset = 0;
 integer extra_parity =  1'b0;
 integer sum = 0 ;
-reg [0:7] hamming_error;
+reg [0:all_bits-1] hamming_error;
 reg [0:data_bits-1] data;
 
 

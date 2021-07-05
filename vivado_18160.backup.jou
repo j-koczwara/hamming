@@ -1,0 +1,171 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jun 30 22:05:02 2021
+# Process ID: 18160
+# Current directory: D:/ham
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18004 D:\ham\hamming.xpr
+# Log file: D:/ham/vivado.log
+# Journal file: D:/ham\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/ham/hamming.xpr
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+close_sim
+launch_simulation
+source testbench.tcl
+relaunch_sim
+add_bp {D:/ham/hamming.srcs/sim_1/new/testbench.v} 29
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+add_bp {D:/ham/hamming.srcs/sim_1/new/testbench.v} 32
+run all
+step
+close_sim
+launch_simulation
+source testbench.tcl
+remove_bps -file {D:/ham/hamming.srcs/sim_1/new/testbench.v} -line 29
+remove_bps -file {D:/ham/hamming.srcs/sim_1/new/testbench.v} -line 32
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+add_bp {D:/ham/hamming.srcs/sources_1/new/encoder.v} 62
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+close_sim
