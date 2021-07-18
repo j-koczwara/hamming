@@ -7,8 +7,8 @@ parameter parity_bits=6;
 parameter all_bits=data_bits+parity_bits;
 
 input rst;
-input [0:all_bits-1] hamming_in ;
-output reg [0:data_bits-1] data_out;
+input [all_bits-1:0] hamming_in ;
+output reg [all_bits-1:0] data_out;
 
 integer syndrome= 0;
 integer parity_position = 1;
@@ -18,8 +18,8 @@ integer i = 0;
 integer offset = 0;
 integer extra_parity =  1'b0;
 integer sum = 0 ;
-reg [0:all_bits-1] hamming_error;
-reg [0:data_bits-1] data;
+reg [all_bits-1:0] hamming_error;
+reg [data_bits-1:0] data;
 
 
 always @* begin

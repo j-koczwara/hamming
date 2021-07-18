@@ -6,10 +6,10 @@ parameter parity_bits=6;
 parameter all_bits=data_bits+parity_bits;
 
 input rst;
-input [0:data_bits-1] data_in ;
-output reg [0:all_bits-1] hamming_out;
+input [data_bits-1:0] data_in ;
+output reg [all_bits-1:0] hamming_out;
 
-reg [0:data_bits-1] data;
+reg [data_bits-1:0] data;
 //reg [0:all_bits-1] correct_output [0:2];
 
 integer parity_position = 1;
@@ -19,7 +19,7 @@ integer output_data_counter = 0;
 integer i = 0;
 integer k = 0;
 integer offset = 0;
-reg [0:all_bits-1] encoder_output = 0;
+reg [all_bits-1:0] encoder_output = 0;
 
 always @* begin
     if (~rst) begin
