@@ -10,3 +10,8 @@
 *.pb
 *.wdf
 *.wpc
+*.tcl
+*.wdm
+*.c
+*.ini
+*xsim*

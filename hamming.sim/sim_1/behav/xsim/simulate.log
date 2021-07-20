@@ -1,7 +1,6 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-Parity           0 ok
-Parity           1 ok
-Parity           2 ok
-Parity           3 ok
-Parity           4 ok
+Test           0 ok
+Test           1 ok
+Test           2 ok
+80000: Finished TPG.

@@ -45,7 +45,7 @@ module encoder_rtl(input clk, input [25:0] data_in, input rst, output reg [31:0]
     assign extra_parity_in[15]=parity[4];
     assign extra_parity_in[30:16]=parity_in[25:11];
     
-    assign encoded={parity_extra,extra_parity_in};    
+    assign encoded={extra_parity_in,parity_extra};    
     
     always@(posedge clk) begin
         if(rst) begin
