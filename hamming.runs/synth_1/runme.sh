@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log encoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source encoder_rtl.tcl
+EAStep vivado -log decoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder_rtl.tcl

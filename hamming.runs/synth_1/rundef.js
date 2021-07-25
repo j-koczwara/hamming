@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log encoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source encoder_rtl.tcl" );
+         "-log decoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder_rtl.tcl" );
 
 
 

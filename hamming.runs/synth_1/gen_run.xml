@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1626726807">
-  <File Type="PA-TCL" Name="encoder_rtl.tcl"/>
-  <File Type="REPORTS-TCL" Name="encoder_rtl_reports.tcl"/>
-  <File Type="RDS-RDS" Name="encoder_rtl.vds"/>
-  <File Type="RDS-UTIL" Name="encoder_rtl_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="encoder_rtl_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="encoder_rtl.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1627235880">
+  <File Type="PA-TCL" Name="decoder_rtl.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="decoder_rtl_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="decoder_rtl_reports.tcl"/>
+  <File Type="RDS-RDS" Name="decoder_rtl.vds"/>
+  <File Type="RDS-UTIL" Name="decoder_rtl_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="decoder_rtl_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="decoder_rtl.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="decoder_rtl_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="decoder_rtl_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/decoder.v">
@@ -33,13 +36,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/decoder_rtl.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/parity_rtl.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -54,9 +50,23 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/data_correction.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/decoder_rtl.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="encoder_rtl"/>
+      <Option Name="TopModule" Val="decoder_rtl"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
