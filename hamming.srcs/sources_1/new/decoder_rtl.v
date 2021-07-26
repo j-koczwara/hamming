@@ -25,7 +25,8 @@ module decoder_rtl(
     input clk,
     input rst,
     output reg [1:0] status_out,  //00 -correct; 01 -single error, corrected; 10 -double error, detected
-    output reg [25:0] data_out
+    //output reg [25:0] data_out
+    output reg [31:0] data_out
     );
     
     reg [31:0] data_in;
@@ -45,16 +46,16 @@ module decoder_rtl(
         end
     endgenerate
     
-    data_correction_rtl(.data_in(data_in), .syndrome(syndrome), .data_corrected(data_corrected), .status(status));
+    data_correction_rtl d1(.data_in(data_in), .syndrome(syndrome), .data_corrected(data_corrected), .status(status));
     
-    assign parity_bits[1:0]=data_in[2:0]  ;
+    assign parity_bits[2:0]=data_in[2:0]  ;
     assign data[0]         =data_in[3]    ;
-    assign parity_bits[2]  =data_in[4]    ;
+    assign parity_bits[3]  =data_in[4]    ;
     assign data[3:1]       =data_in[7:5]  ;
-    assign parity_bits[3]  =data_in[8]    ;
+    assign parity_bits[4]  =data_in[8]    ;
     assign data[10:4]      =data_in[15:9] ;
-    assign parity_bits[4]  =data_in[16]   ;
-    assign data[25:11]     =data_in[31:15];
+    assign parity_bits[5]  =data_in[16]   ;
+    assign data[25:11]     =data_in[31:17];
     
     assign syndrome=parity_bits_dec^parity_bits;
 
