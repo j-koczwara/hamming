@@ -1,2 +1,4 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Joanna/Desktop/systemy dedykowane/projekt/hamming.srcs/sim_1/new/decoder_rtl_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module decoder_rtl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ham/hamming.srcs/sim_1/new/parity_extra_rtl_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module parity_extra_rtl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ham/hamming.srcs/sim_1/new/encoder_rtl_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module encoder_rtl_tb
