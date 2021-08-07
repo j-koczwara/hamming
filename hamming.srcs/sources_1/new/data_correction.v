@@ -36,7 +36,7 @@ module data_correction_rtl(
                 temp=data_in;
             end
             else begin
-            error_pos = syndrome[1]+syndrome[2]<<1+syndrome[3]<<2 + syndrome[4]<<3 + syndrome[5]<<4;  
+            error_pos = (syndrome[1])+(syndrome[2]<<1)+(syndrome[3]<<2) + (syndrome[4]<<3) + (syndrome[5]<<4);  
             temp=data_in;
             temp[error_pos]= ~temp[error_pos];
             status = 2'b01;

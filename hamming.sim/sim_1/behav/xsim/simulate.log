@@ -1,3 +1,6 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-80000: Finished TPG.
+Stopped at time : 145 ns : File "D:/ham/hamming.srcs/sources_1/new/data_correction.v" Line 40
+Stopped at time : 165 ns : File "D:/ham/hamming.srcs/sources_1/new/data_correction.v" Line 40
+Finished 
+$finish called at time : 190 ns : File "D:/ham/hamming.srcs/sim_1/new/testbench.v" Line 117

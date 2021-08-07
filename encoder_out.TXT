@@ -1,3 +1,0 @@
-Test 0 ok
-Test 1 ok
-Test 2 ok

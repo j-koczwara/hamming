@@ -1,16 +1,16 @@
 `timescale 1ns / 1ps
 
-module encoder(rst, data_in, hamming_out);
+module encoder(clk,data_in,rst,data_out);
 parameter data_bits=26;
 parameter parity_bits=6;
 parameter all_bits=data_bits+parity_bits;
 
+input clk;
+input [25:0] data_in;
 input rst;
-input [data_bits-1:0] data_in ;
-output reg [all_bits-1:0] hamming_out;
+output reg [31:0] data_out;
 
 reg [data_bits-1:0] data;
-//reg [0:all_bits-1] correct_output [0:2];
 
 integer parity_position = 1;
 integer data_counter = 0;
@@ -21,15 +21,19 @@ integer k = 0;
 integer offset = 0;
 reg [all_bits-1:0] encoder_output = 0;
 
-always @* begin
-    if (~rst) begin
-
+always@(posedge clk) begin
+    if (rst) begin
+            data_out  <= 0;
+            data <= 0;
+    end
+    else begin
+        
+        data<=data_in;
         parity_position=1;
         data_counter=0;
         output_data_counter=0;
         sum=0;
-        encoder_output=0;
-        data=data_in;
+        encoder_output=0;    
         
         for (i=1; i < all_bits; i=i+1) begin  //add parity bits
             if ( i == parity_position )begin 
@@ -64,10 +68,10 @@ always @* begin
         end
         encoder_output[0] = sum%2;   
         
-        $display("Input data %b", data);
-        $display("Encoded: %b",encoder_output);
+       // $display("Input data %b", data);
+       // $display("Encoded: %b",encoder_output);
 
-     hamming_out = encoder_output;
+     data_out <= encoder_output;
     end
 end
 endmodule
