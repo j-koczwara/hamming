@@ -16,3 +16,13 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/ham/hamming.srcs/sim_1/new/testb
 INFO: [VRFC 10-311] analyzing module testbench
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/ham/hamming.srcs/sim_1/new/parity_rtl_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module parity_rtl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ham/hamming.srcs/sim_1/new/parity_extra_rtl_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module parity_extra_rtl_tb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ham/hamming.srcs/sim_1/new/encoder_rtl_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module encoder_rtl_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/ham/hamming.srcs/sim_1/new/clk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ham/hamming.srcs/sim_1/new/decoder_rtl_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder_rtl_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/ham/hamming.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -1,25 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 13.07.2021 19:41:04
-// Design Name: 
-// Module Name: encoder_rtl
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module encoder_rtl(input clk, input [25:0] data_in, input rst, output reg [31:0] data_out);
     reg [25:0] parity_in;
     wire [5:0] parity;

@@ -9,4 +9,4 @@ Test 1 for decoder double error passed, status 10
 Test 2 for encoder passed
 Test 2 for decoder passed, status 00
 Test 2 for decoder one error passed, status 01
-Test 2 for decoder double error passed, status 10
+Test 2 for decoder double error passed, status 10 

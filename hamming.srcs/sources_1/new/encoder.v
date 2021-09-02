@@ -4,7 +4,7 @@ module encoder(clk,data_in,rst,data_out);
 parameter data_bits=26;
 parameter parity_bits=6;
 parameter all_bits=data_bits+parity_bits;
-
+ 
 input clk;
 input [25:0] data_in;
 input rst;

@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=F:/Xilinx/SDK/2018.3/bin;F:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2018.3/bin
+  PATH=C:/xilinx/SDK/2018.3/bin;C:/xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/xilinx/Vivado/2018.3/bin
 else
-  PATH=F:/Xilinx/SDK/2018.3/bin;F:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2018.3/bin:$PATH
+  PATH=C:/xilinx/SDK/2018.3/bin;C:/xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/xilinx/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Joanna/Desktop/systemy dedykowane/projekt/hamming.runs/synth_1'
+HD_PWD='D:/ham/hamming.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log decoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder_rtl.tcl
+EAStep vivado -log encoder_rtl.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source encoder_rtl.tcl

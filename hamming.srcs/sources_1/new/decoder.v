@@ -6,7 +6,7 @@ input [31:0] hamming_in,
 input rst,
 output reg [31:0] data_out,
 output reg [1:0] status_out  //00 -correct; 01 -single error, corrected; 10 -double error, detected
-
+ 
 );
 parameter data_bits=26;
 parameter parity_bits=6;
